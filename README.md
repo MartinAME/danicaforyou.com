@@ -1,1 +1,153 @@
-# danicaforyou.com
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine ❤️</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffd6e7, #ffeaf3);
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+
+  .container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    max-width: 500px;
+  }
+
+  h1 {
+    color: #ff3366;
+  }
+
+  img {
+    max-width: 300px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
+
+  button {
+    padding: 12px 25px;
+    font-size: 18px;
+    margin: 10px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+  }
+
+  .yes {
+    background: #ff4d88;
+    color: white;
+  }
+
+  .no {
+    background: #ccc;
+  }
+
+  .letter {
+    font-family: "Brush Script MT", cursive;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container" id="content">
+  <h1>Will you be my Valentine? 💖<br>Please don’t say no.</h1>
+  <button class="yes" onclick="yesClick()">YES</button>
+  <button class="no" onclick="noClick()">NO</button>
+</div>
+
+<script>
+let noCount = 0;
+let yesSize = 18;
+
+const images = [
+  "pic1.jpg","pic2.jpg","pic3.jpg","pic4.jpg","pic5.jpg",
+  "pic6.jpg","pic7.jpg","pic8.jpg","pic9.jpg","pic10.jpg"
+];
+
+const messages = [
+  "Iiyak ako kung hindi ka mag-yes 😭",
+  "Sigeeee na, pindutin mo na yung yes 🥺",
+  "Luh, nag-no na naman 😤",
+  "Sige, iiyak ako 😭",
+  "La la la la la la 😭",
+  "😭😭😭",
+  "Okay sige, bato lang naman ako sa daanan 🪨",
+  "Haist, mahirap talaga maging bato 😔",
+  "Pang ilang no mo na to ah? 😒",
+  "Sa huli, ako pa rin pipiliin mo 😏💖"
+];
+
+function yesClick() {
+  document.getElementById("content").innerHTML =
+    `<h1>YAY ❤️ I knew you wouldn’t say no!</h1>
+     <button class="yes" onclick="showLetter()">Press this 💌</button>`;
+}
+
+function showLetter() {
+  document.body.style.background =
+    "linear-gradient(135deg, #ff9a9e, #fad0c4)";
+
+  document.getElementById("content").innerHTML =
+    `<div class="letter">
+    Danica, happy Feb 14th to us ❤️ AHAHAHAHA.<br><br>
+
+    First of all, gusto ko mag-sorry kasi hindi ako nakagawa ng something special for you today. 
+    Hindi ako nakapagbigay ng gift, and I really feel bad about it. Actually, balak ko sana magpadala 
+    ng bag for you, pero nalaman ko may bago ka na pala 😭 HAHAHAHA. But I promise, babawi ako, okay?<br><br>
+
+    Gusto ko rin mag-sorry sa recent misunderstandings natin. I know minsan pinapairal ko yung pagiging 
+    “prideful” ko 😅 chos HAHAHA. But seriously, I’m sorry. I promise I’ll try harder to understand you 
+    more so that seldom na lang tayo mag-away. I really want us to grow and be better together.<br><br>
+
+    How I really miss you. Thank you for staying, for being patient with me, and for loving me even 
+    when I’m not at my best. I promise I will keep growing and becoming a better person for you and 
+    for us, kahit unti-unti lang. Sana dumating yung time na wala nang barriers, and mas marami na 
+    tayong moments na magkasama.<br><br>
+
+    Namiss ko na talaga hawakan yung cute and delicate hands mo. I miss how I lean on your shoulder 
+    kahit mabigat ulo ko 😭 HAHAHA. Basta, everything about you, namiss ko na.<br><br>
+
+    I love you, Danica. I love you so much. And I hope in the future, sasakay ka rin sa mga spicy 
+    stories na ihahain ko sayo 😌 but of course, okay lang if hindi ka pa ready. No pressure, I 
+    respect you always.<br><br>
+
+    Happy Feb 14th to us again. I love you, always. ❤️
+    </div>`;
+}
+
+function noClick() {
+  if (noCount < images.length) {
+
+    yesSize += 6;
+
+    document.getElementById("content").innerHTML =
+      `<img src="${images[noCount]}">
+       <h1>${messages[noCount]}</h1>
+       <button class="yes" style="font-size:${yesSize}px" onclick="yesClick()">YES</button>
+       <button class="no" onclick="noClick()">NO</button>`;
+
+    noCount++;
+
+  } else {
+    document.getElementById("content").innerHTML =
+      `<h1>Will you be my Valentine? 💖</h1>
+       <button class="yes" style="font-size:40px" onclick="yesClick()">YES</button>`;
+  }
+}
+</script>
+
+</body>
+</html>
